@@ -1,0 +1,14 @@
+Randy Lirano
+
+Laptop Information:
+Make: Apple
+Model: MacBook Pro
+Processor: 2.2 GHz 6-Core Intel Core i7
+RAM: 16 GB 2400 MHz DDR4
+Storage: 171.48 of 256 GB Available
+OS: macOS Catalina version 10.15.4
+Java and JVM:
+java 14.0.1 2020-04-14
+Java(TM) SE Runtime Environment (build 14.0.1+7)
+Java HotSpot(TM) 64-Bit Server VM (build 14.0.1+7, mixed mode, sharing)
+javac 14.0.1
