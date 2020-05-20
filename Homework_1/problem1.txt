@@ -1,0 +1,21 @@
+a) 2 % 3 = 2
+>> The remainder operator return the remainder of integer division. In this case, 2.
+
+b) 0 % 3 = 0
+>> The remainder operator return the remainder of integer division. In this case, 0.
+
+c) 3 % 3 = 0
+>> The remainder operator return the remainder of integer division. In this case, 0. 
+>> Because 3 is divisible by 3.
+
+d) -2 % 3 = -2
+>> The unary operator takes place before the modulo, so the modulo sees (-2) % 3
+>> which return -2.
+
+e) 2 % -3 = 2
+>> The unary operator takes place before the modulo, so the modulo sees 2 % (-3)
+>> which return 2.
+
+f) -2 % -3 = -2
+>> The unary operator takes place before the modulo, so the modulo sees (-2) % (-3)
+>> which return -2.
