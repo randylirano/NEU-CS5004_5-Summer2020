@@ -1,0 +1,21 @@
+5
+
+X _ O
+O X O
+_ _ X
+
+X _ X
+_ X O
+_ _ O
+
+X _ O
+_ _ O
+_ X X
+
+X O O
+_ X _
+_ _ X
+
+X _ O
+_ X _
+_ O X
