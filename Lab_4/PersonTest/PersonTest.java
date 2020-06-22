@@ -1,3 +1,5 @@
+package PersonTest;
+
 /**
  * PersonTest.java
  */
@@ -61,11 +63,17 @@ class Person {
 
     // setAge(int)
     public boolean setAge(int yearOfBirth) {
-        if (currentYear < yearOfBirth) {
+        // Current year should be greater than or equal to the year of birth
+        // to prevent negative age during calculation
+        if (currentYear >= yearOfBirth) {
             this.yearOfBirth = yearOfBirth;
             return true;
         }
-        return false;
+        // In case of year of birth is greater than the current year
+        else {
+            System.out.println("ERROR: Unreasonable Year of Birth");
+            return false;
+        }
     }
 
     // setAge(double)
@@ -74,7 +82,7 @@ class Person {
     }
 
     public double getHeight() {
-        return height;
+        return this.height;
     }
 
     public void setHeight(double height) {
@@ -89,21 +97,26 @@ class Person {
     }
 
     public String toString() {
-        return this.firstName + " " + this.lastName + ", " + this.getAge() + ", " + this.height;
+        return this.firstName + " " + this.lastName + ", Age " + getAge() + ", height " + getHeight();
     }
 }
 
 public class PersonTest {
     public static void main(String[] args) {
-        // Person p;
-        // p = new Person(44,69);
-        // System.out.println(p);
+        // Test constructor and equal method
+        Person p = new Person("Randy", "Lirano", 69, 1995);
+        Person q = new Person("Randy", "Lirano", 65, 1995);
+        System.out.println("Person p: " + p);
+        System.out.println("Person q: " + q);
+        System.out.println("Person p equals to person q: " + p.equals(q));
+        System.out.println("");
 
-        Person q = new Person("Randy", "Lirano", 69, 1995);
-        System.out.println(q);
-
-        // System.out.println(p.equals(q));
-
+        // Test setAge method
+        System.out.println("Person p age: " + p.getAge());
+        boolean personPSetAge = p.setAge(2100);
+        System.out.println("Person p age: " + p.getAge());
+        personPSetAge = p.setAge(2000);
+        System.out.println("Person p age: " + p.getAge());
         
     }
 }

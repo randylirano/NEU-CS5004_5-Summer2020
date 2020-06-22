@@ -1,0 +1,5 @@
+Overriding:
+Change a method implementation of parent class with specific implementation that suited for the child class. The method's signature have to be the same during overriding.
+
+Overload:
+To have two or more methods with the same name, but different signatures.
