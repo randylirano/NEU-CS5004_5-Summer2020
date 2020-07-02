@@ -52,10 +52,10 @@ public class BirdTest {
         arr[1] = m;
         arr[2] = tb;
         arr[3] = my;
-        arr[4] = falcon;
+        // arr[4] = falcon;
 
         for (int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i]);
+            System.out.println(arr[i] == null);
         }
     }
 }
