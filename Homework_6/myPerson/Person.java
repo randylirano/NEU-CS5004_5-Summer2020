@@ -7,7 +7,7 @@ package myPerson;
 /**
  * CS5004 Assignment 6: Problem 1 - Person Class.
  * This class is a programmer defined Person object.
- * 
+ *
  * @author Randy Lirano
  * @since 2020-06-21
  */
@@ -21,7 +21,7 @@ public class Person {
     public Person() {
         this("", "");
     }
-    
+
     // 2 arguments constructor
     public Person(String firstName, String lastName) {
         setFirstName(firstName);
