@@ -3,21 +3,23 @@ package myShapes;
 public class Rectangle extends Shapes {
     private double width;
     private double length;
-
-    // Constructor with no arguments
-    public Rectangle() {
-        this(0.0, 0.0);
-    }
+    private int color;
 
     // Constructor with width and length as arguments
-    public Rectangle(double width, double length) {
-        setWidth(width);
-        setLength(length);
+    public Rectangle(double width, double length, int color) {
+        if (checkSide(width) && checkSide(length)) {
+            setWidth(width);
+            setLength(length);
+            setColor(color);
+        } else {
+            System.out.println("Illegal Dimension");
+            System.exit(-1);
+        }
     }
 
     // Copy constructor
     public Rectangle(Rectangle other) {
-        this(other.getWidth(), other.getLength());
+        this(other.getWidth(), other.getLength(), other.getColor());
     }
 
     // Getter methods
@@ -29,9 +31,14 @@ public class Rectangle extends Shapes {
         return this.length;
     }
 
+    @Override
+    public int getColor() {
+        return this.color;
+    }
+
     // Setter methods
     public boolean setWidth(double width) {
-        if (width >= 0.0) {
+        if (checkSide(width)) {
             this.width = width;
             return true;
         }
@@ -39,11 +46,26 @@ public class Rectangle extends Shapes {
     }
 
     public boolean setLength(double length) {
-        if (width >= 0.0) {
+        if (checkSide(length)) {
             this.length = length;
             return true;
         }
         return false;
+    }
+
+    public boolean setColor(int color) {
+        if (color >= 0) {
+            this.color = color;
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkSide(double side) {
+        if (side < 0) {
+            return false;
+        }
+        return true;
     }
 
     @Override
@@ -59,17 +81,14 @@ public class Rectangle extends Shapes {
     public String toString() {
         return "width: " + getWidth() + "; length: " + getLength() + "; area: " + area();
     }
-
+    
     // public static void main(String[] args) {
-    //     Rectangle a = new Rectangle();
-    //     Rectangle b = new Rectangle(2.5, 4.5);
-    //     Rectangle c = new Rectangle(b);
-    //     System.out.println("a is larger than b: " + a.compareTo(b));
-    //     System.out.println("b is larger than a: " + b.compareTo(a));
-    //     System.out.println("B dimension: " + b.getWidth() + " x " + b.getLength());
-    //     System.out.println("C dimension: " + c.getWidth() + " x " + c.getLength());
+    //     Rectangle a = new Rectangle(2.5, 4.5);
+    //     Rectangle b = new Rectangle(a);
+    //     System.out.println("Rectangle A: " + a);
+    //     System.out.println("Rectangle B: " + b);
 
-    //     Shapes d = new Rectangle(3, 6);
-    //     System.out.println("d is larger than b: " + d.compareTo(b));
+    //     Shapes c = new Rectangle(3, 6);
+    //     System.out.println("Rectangle C is larger than Rectangle B: " + c.compareTo(b));
     // }
 }

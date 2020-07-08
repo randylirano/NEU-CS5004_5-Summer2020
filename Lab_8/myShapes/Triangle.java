@@ -1,26 +1,27 @@
 package myShapes;
 
-public class Triangle extends Shapes {
+public abstract class Triangle extends Shapes {
     private double side1;
     private double side2;
     private double side3;
-
-    // Constructor with no arguments
-    // The default value for the triangle is 1 for all sides
-    public Triangle() {
-        this(1.0, 1.0, 1.0);
-    }
+    private int color;
 
     // Constructor with width and length as arguments
-    public Triangle(double side1, double side2, double side3) {
-        setSide1(side1);
-        setSide2(side2);
-        setSide3(side3);
+    public Triangle(double side1, double side2, double side3, int color) {
+        if (checkSide(side1) && checkSide(side2) && checkSide(side3)) {
+            setSide1(side1);
+            setSide2(side2);
+            setSide3(side3);
+            setColor(color);
+        } else {
+            System.out.println("Illegal Dimension");
+            System.exit(-1);
+        }
     }
 
     // Copy constructor
     public Triangle(Triangle other) {
-        this(other.getSide1(), other.getSide2(), other.getSide3());
+        this(other.getSide1(), other.getSide2(), other.getSide3(), other.getColor());
     }
 
     // Getter method
@@ -36,9 +37,14 @@ public class Triangle extends Shapes {
         return this.side3;
     }
 
+    @Override
+    public int getColor() {
+        return this.color;
+    }
+
     // Setter method
     public boolean setSide1(double side1) {
-        if (side1 >= 0.0) {
+        if (checkSide(side1)) {
             this.side1 = side1;
             return true;
         }
@@ -46,7 +52,7 @@ public class Triangle extends Shapes {
     }
 
     public boolean setSide2(double side2) {
-        if (side2 >= 0.0) {
+        if (checkSide(side2)) {
             this.side2 = side2;
             return true;
         }
@@ -54,16 +60,36 @@ public class Triangle extends Shapes {
     }
 
     public boolean setSide3(double side3) {
-        if (side3 >= 0.0) {
+        if (checkSide(side3)) {
             this.side3 = side3;
             return true;
         }
         return false;
     }
 
+    public boolean setColor(int color) {
+        if (color >= 0) {
+            this.color = color;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean checkSide(double side) {
+        if (side < 0) {
+            return false;
+        }
+        return true;
+    }
+
+    // Check if triangle is right-triangle or equilateral-triangle
+    abstract boolean isRightTriangle();
+    abstract boolean isEquilateralTriangle();
+
     @Override
     public double area() {
-        double p = perimeter() / 2;
+        // Heron's formula
+        double p = this.perimeter() / 2;
         return Math.sqrt(p * (p - getSide1()) * (p - getSide2()) * (p - getSide3()));
     }
 

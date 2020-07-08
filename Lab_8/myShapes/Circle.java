@@ -2,20 +2,22 @@ package myShapes;
 
 public class Circle extends Shapes {
     private double radius;
-
-    // Constructor with no arguments
-    public Circle() {
-        this(0.0);
-    }
+    private int color;
 
     // Constructor with width and length as arguments
-    public Circle(double radius) {
-        setRadius(radius);
+    public Circle(double radius, int color) {
+        if (checkDimension(radius)) {
+            setRadius(radius);
+            setColor(color);
+        } else {
+            System.out.println("Illegal Dimension");
+            System.exit(-1);
+        }
     }
 
     // Copy constructor
     public Circle(Circle other) {
-        this(other.getRadius());
+        this(other.getRadius(), other.getColor());
     }
 
     // Getter method
@@ -24,8 +26,23 @@ public class Circle extends Shapes {
     }
 
     // Setter method
+    private boolean checkDimension(double radius) {
+        if (radius < 0) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean setColor(int color) {
+        if (color >= 0) {
+            this.color = color;
+            return true;
+        }
+        return false;
+    }
+
     public boolean setRadius(double radius) {
-        if (radius >= 0.0) {
+        if (checkDimension(radius)) {
             this.radius = radius;
             return true;
         }
@@ -45,13 +62,15 @@ public class Circle extends Shapes {
     public String toString() {
         return "radius: " + getRadius() + "; area: " + area();
     }
+
+    @Override
+    public int getColor() {
+        return this.color;
+    }
     
     // public static void main(String[] args) {
-    //     Circle a = new Circle();
     //     Circle b = new Circle(3);
     //     Circle c = new Circle(b);
-    //     System.out.println("a is larger than b: " + a.compareTo(b));
-    //     System.out.println("b is larger than a: " + b.compareTo(a));
     //     System.out.println("B dimension: " + b.getRadius());
     //     System.out.println("C dimension: " + c.getRadius());
 
