@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  * Store items and sort them based their given weight (priority).
- * Item with the highest prioritu goes to the front of the queue.
+ * Item with the highest priority goes to the front of the queue.
  * 
  * @param <T1> itemList holds the given items.
  * @param <T2> weightList holds the weight of the given item, and determined the ordering.

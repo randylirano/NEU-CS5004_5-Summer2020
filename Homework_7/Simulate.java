@@ -18,7 +18,7 @@ import java.util.Random;
 public class Simulate {
     // Initial number of Ant and Doodlebug
     private static final int ANT = 5;
-    private static final int DOODLEBUG = 10;
+    private static final int DOODLEBUG = 100;
 
     public static void main(String[] args) {
         // Initialize console for user input and random number
